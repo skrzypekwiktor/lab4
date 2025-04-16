@@ -4,3 +4,5 @@ Krzysztof 20
 Janusz 40
 Wiktor 21
 wiktor 21
+radek 21
+radek 20

@@ -12,29 +12,53 @@ import java.util.Scanner;
 
 class Main {
   public static void main(String[] args) {
-      System.out.println("Podaj imie:");
-      Scanner sc=new Scanner(System.in);
-      String imie=sc.nextLine();
-      System.out.println("Podaj wiek:");
-      int wiek=sc.nextInt();
 
-       Student nowystudent=new Student(imie,wiek);
-    
-    
+    Service s = new Service();
+    Scanner sc = new Scanner(System.in);
+    int wybor;
+    boolean petla = true;
+    while (petla) {
+      System.out.println("1.Dodaj studenta");
+      System.out.println("2.Wypisz studentow");
+      System.out.println("3.Wyjscie");
+      System.out.println("");
+      wybor = sc.nextInt();
+      sc.nextLine();
+      switch (wybor) {
+        case 1:
+          System.out.println("Podaj imie:");
 
-    
-    try {
-      Service s = new Service();
-      
-      
-      s.addStudent(nowystudent);
+          String imie = sc.nextLine();
+          System.out.println("Podaj wiek:");
+          int wiek = sc.nextInt();
 
-      var students = s.getStudents();
-      for(Student current : students) {
-        System.out.println(current.ToString());
+          Student nowystudent = new Student(imie, wiek);
+          try {
+            s.addStudent(nowystudent);
+
+          } catch (IOException e) {
+
+          }
+
+          break;
+
+        case 2:
+          try {
+            var students = s.getStudents();
+            for (Student current : students) {
+              System.out.println(current.ToString());
+            }
+          } catch (IOException e) {
+
+          }
+          break;
+        case 3:
+          petla = false;
+          System.exit(0);
+          break;
       }
-    } catch (IOException e) {
-
     }
+
   }
+
 }
