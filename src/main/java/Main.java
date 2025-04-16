@@ -21,18 +21,22 @@ class Main {
       System.out.println("1.Dodaj studenta");
       System.out.println("2.Wypisz studentow");
       System.out.println("3.Wyjscie");
-      System.out.println("");
       wybor = sc.nextInt();
-      sc.nextLine();
+      
+
+      
       switch (wybor) {
         case 1:
           System.out.println("Podaj imie:");
-
+          sc.nextLine();  
           String imie = sc.nextLine();
           System.out.println("Podaj wiek:");
           int wiek = sc.nextInt();
+          sc.nextLine();
+          System.out.println("Podaj nazwisko:");
+          String nazwisko = sc.nextLine();
 
-          Student nowystudent = new Student(imie, wiek);
+          Student nowystudent = new Student(imie, wiek,nazwisko);
           try {
             s.addStudent(nowystudent);
 
