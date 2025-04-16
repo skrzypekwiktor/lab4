@@ -1,2 +1,6 @@
 Krzysztof 20
 Janusz 40
+Krzysztof 20
+Janusz 40
+Wiktor 21
+wiktor 21
