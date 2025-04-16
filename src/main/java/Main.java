@@ -21,7 +21,6 @@ class Main {
        Student nowystudent=new Student(imie,wiek);
     
     
-    
 
     
     try {
