@@ -20,7 +20,8 @@ class Main {
     while (petla) {
       System.out.println("1.Dodaj studenta");
       System.out.println("2.Wypisz studentow");
-      System.out.println("3.Wyjscie");
+      System.out.println("3.Wyszukaj studenta po imieniu");
+      System.out.println("4.Wyjscie");
       wybor = sc.nextInt();
 
       switch (wybor) {
@@ -48,7 +49,6 @@ class Main {
           }
           sc.nextLine();
           String dzienurodzenia = Integer.toString(dzien);
-
           int miesiac;
           while (true) {
             System.out.println("Wprowadź miesiąc urodzenia:");
@@ -60,7 +60,6 @@ class Main {
             }
           }
           String miesiacurodzenia = Integer.toString(miesiac);
-
           System.out.println("Wprowadź rok urodzenia:");
           int rok = sc.nextInt();
           String rokurodzenia = Integer.toString(rok);
@@ -88,6 +87,22 @@ class Main {
           break;
 
         case 3:
+          try {
+            var students = s.getStudents();
+            sc.nextLine();
+            System.out.println("Podaj imie:");
+            String imie2 = sc.nextLine();
+            Student student = s.findStudentByName(imie2);
+            if (student != null) {
+              System.out.println("Znaleziono studenta: " + student.ToString());
+            }
+
+          } catch (IOException e) {
+
+          }
+          break;
+
+        case 4:
           petla = false;
           System.exit(0);
           break;
