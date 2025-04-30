@@ -1,14 +1,12 @@
-Krzysztof 20
-Janusz 40
-Krzysztof 20
-Janusz 40
-Wiktor 21
-wiktor 21
-radek 21
-radek 20
-wiktor 21 skrzypek
-bartek 21 asdf
-wiktor 21 skrzypek
-wiktor 21 skrzypek 25.9.2003
-wiktor 25 skrzyp 31.11.1970
+Parse Error -1 Parse Error Parse Error
+Parse Error -1 Parse Error Parse Error
+Parse Error -1 Parse Error Parse Error
+Parse Error -1 Parse Error Parse Error
+Parse Error -1 Parse Error Parse Error
+Parse Error -1 Parse Error Parse Error
+Parse Error -1 Parse Error Parse Error
+Parse Error -1 Parse Error Parse Error
+Parse Error -1 Parse Error Parse Error
+Parse Error -1 Parse Error Parse Error
+Parse Error -1 Parse Error Parse Error
 wiktor 26 kkk 26-11-1985

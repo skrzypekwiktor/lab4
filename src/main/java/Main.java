@@ -1,18 +1,8 @@
-/*
-Kod bazowy programu Commit4_0: 
-• Program dodaje do prostej bazy danych (pliku db.txt) dane odnośnie Studentów.
-• Studenci dodawani są w klasie Main.
-• Wszyscy studenci są wypisywani na końcu klasy Main.
-• Klasa Service obsługuje odczyt i zapis do pliku bazy danych.
-• Klasa Student reprezentuje pojedynczego studenta (Imię, Wiek).
-*/
-
-import java.io.IOException;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 class Main {
   public static void main(String[] args) {
-
     Service s = new Service();
     Scanner sc = new Scanner(System.in);
     int wybor;
@@ -21,11 +11,13 @@ class Main {
       System.out.println("1.Dodaj studenta");
       System.out.println("2.Wypisz studentow");
       System.out.println("3.Wyszukaj studenta po imieniu");
-      System.out.println("4.Wyjscie");
+      System.out.println("4.Usun studenta");
+      System.out.println("5.Wyjscie");
       wybor = sc.nextInt();
 
       switch (wybor) {
         case 1:
+
           System.out.println("Podaj imie:");
           sc.nextLine();
           String imie = sc.nextLine();
@@ -70,23 +62,22 @@ class Main {
           try {
             s.addStudent(nowystudent);
           } catch (IOException e) {
-
           }
-
           break;
 
         case 2:
+
           try {
             var students = s.getStudents();
             for (Student current : students) {
               System.out.println(current.ToString());
             }
           } catch (IOException e) {
-
           }
           break;
 
         case 3:
+
           try {
             var students = s.getStudents();
             sc.nextLine();
@@ -96,19 +87,55 @@ class Main {
             if (student != null) {
               System.out.println("Znaleziono studenta: " + student.ToString());
             }
-
           } catch (IOException e) {
-
           }
           break;
 
         case 4:
+
+          System.out.println("Podaj imie studenta do usuniecia:");
+          sc.nextLine();
+          String imieusun = sc.nextLine();
+          System.out.println("Podaj nazwisko studenta do usuniecia:");
+          String nazwiskousun = sc.nextLine();
+
+          try {
+
+            var students = s.getStudents();
+            boolean found = false;
+
+            Iterator<Student> iterator = students.iterator();
+            while (iterator.hasNext()) {
+              Student student = iterator.next();
+              if (student.GetName().equals(imieusun) && student.GetNazwisko().equals(nazwiskousun)) {
+                iterator.remove();
+                found = true;
+                break;
+              }
+            }
+
+            if (found) {
+
+              FileWriter fw = new FileWriter("db.txt");
+              for (Student student : students) {
+                fw.write(student.ToString() + "\n");
+              }
+              fw.close();
+              System.out.println("Student usuniety  ");
+            } else {
+              System.out.println("Nie znaleziono studenta o podany imieniu i nazwisku");
+            }
+
+          } catch (IOException e) {
+            System.out.println("blad usuwania");
+          }
+          break;
+
+        case 5:
           petla = false;
           System.exit(0);
           break;
       }
     }
-
   }
-
 }
