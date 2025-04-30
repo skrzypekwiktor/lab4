@@ -22,24 +22,54 @@ class Main {
       System.out.println("2.Wypisz studentow");
       System.out.println("3.Wyjscie");
       wybor = sc.nextInt();
-      
 
-      
       switch (wybor) {
         case 1:
           System.out.println("Podaj imie:");
-          sc.nextLine();  
+          sc.nextLine();
           String imie = sc.nextLine();
+
           System.out.println("Podaj wiek:");
           int wiek = sc.nextInt();
           sc.nextLine();
+
           System.out.println("Podaj nazwisko:");
           String nazwisko = sc.nextLine();
 
-          Student nowystudent = new Student(imie, wiek,nazwisko);
+          int dzien;
+          while (true) {
+            System.out.println("Wprowadź dzień urodzenia :");
+            dzien = sc.nextInt();
+            if (dzien >= 1 && dzien <= 31) {
+              break;
+            } else {
+              System.out.println("wprowadz poprawny dzien");
+            }
+          }
+          sc.nextLine();
+          String dzienurodzenia = Integer.toString(dzien);
+
+          int miesiac;
+          while (true) {
+            System.out.println("Wprowadź miesiąc urodzenia:");
+            miesiac = sc.nextInt();
+            if (miesiac >= 1 && miesiac <= 12) {
+              break;
+            } else {
+              System.out.println("Wprowadz poprawny miesiac");
+            }
+          }
+          String miesiacurodzenia = Integer.toString(miesiac);
+
+          System.out.println("Wprowadź rok urodzenia:");
+          int rok = sc.nextInt();
+          String rokurodzenia = Integer.toString(rok);
+
+          String dataurodzenia = dzienurodzenia + "-" + miesiacurodzenia + "-" + rokurodzenia;
+
+          Student nowystudent = new Student(imie, wiek, nazwisko, dataurodzenia);
           try {
             s.addStudent(nowystudent);
-
           } catch (IOException e) {
 
           }
@@ -56,6 +86,7 @@ class Main {
 
           }
           break;
+
         case 3:
           petla = false;
           System.exit(0);
